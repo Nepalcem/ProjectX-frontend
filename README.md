@@ -1,1 +1,2 @@
-# ProjectX-frontend
+# React + TypeScript + Vite
+

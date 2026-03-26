@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 
-export const Home = () => <h1>Home</h1>
 export const About = () => <h1>About</h1>
 
 createRoot(document.getElementById('root')!).render(
@@ -15,5 +14,5 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )

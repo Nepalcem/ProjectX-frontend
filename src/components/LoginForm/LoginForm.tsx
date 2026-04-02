@@ -12,14 +12,20 @@ const LoginForm: FC = () => {
           <span
             role="button"
             onClick={() => setIsSignUp(false)}
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              color: isSignUp ? "#334155" : "#814141",
+            }}
           >
             Log In{" "}
           </span>
           <span
             role="button"
             onClick={() => setIsSignUp(true)}
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              color: isSignUp ? "#814141" : "#334155",
+            }}
           >
             Sign Up
           </span>
@@ -34,18 +40,18 @@ const LoginForm: FC = () => {
         />
         <label htmlFor={checkboxId}></label>
         <div className="card-3d-wrap mx-auto">
-          <div className="card-3d-wrapper">
+          <div className="card-3d-wrapper rounded-md">
             {/* Login Form */}
             <div className="card-front">
               <div className="center-wrap">
                 <div className="section text-center">
-                  <h4 className="mb-4 pb-3">Log In</h4>
+                  <h4 className="mb-4 pb-3 text-white uppercase">Log In</h4>
                   <div className="form-group">
                     <input
                       type="email"
                       name="login-email"
-                      className="form-style"
-                      placeholder="Your Email"
+                      className="form-style text-white"
+                      placeholder="Your Email:"
                       id="login-email"
                       autoComplete="off"
                     />
@@ -55,8 +61,8 @@ const LoginForm: FC = () => {
                     <input
                       type="password"
                       name="login-password"
-                      className="form-style"
-                      placeholder="Your Password"
+                      className="form-style text-white"
+                      placeholder="Your Password:"
                       id="login-password"
                       autoComplete="off"
                     />

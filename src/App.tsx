@@ -1,14 +1,11 @@
 import type { FC } from "react";
-import UnderConstruction from "./pages/UnderConstruction";
-import Home from "./pages/Home";
-import LoginForm from "./components/LoginForm/LoginForm";
+import Home from "./pages/Home/Home";
 
 const App: FC = () => {
   return (
     <>
       <Home />
-      <UnderConstruction />
-      <LoginForm />
+      {/* <UnderConstruction /> */}
     </>
   );
 };

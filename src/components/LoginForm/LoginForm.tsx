@@ -45,7 +45,7 @@ const LoginForm: FC = () => {
             <div className="card-front">
               <div className="center-wrap">
                 <div className="section text-center">
-                  <h4 className="mb-4 pb-3 text-white uppercase">Log In</h4>
+                  <h4 className="mb-4 pb-3 text-white">Log In</h4>
                   <div className="form-group">
                     <input
                       type="email"

@@ -1,0 +1,16 @@
+:root {
+  --main-accent: #814141;
+  --main-yellow-accent: #fad5a5;
+  --main-border-radius: 6px;
+  --main-red-accent: #D2042D;
+
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-desktop: 1280px;
+
+  --container-max-width: 1200px;
+  --container-padding-mobile: 1rem;
+  --container-padding-tablet: 1.5rem;
+  --container-padding-desktop: 2rem;
+}

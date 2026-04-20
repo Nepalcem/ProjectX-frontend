@@ -8,13 +8,13 @@ const LoginForm: FC = () => {
   return (
     <div className="section">
       <div className="section pb-5 pt-5 pt-sm-2 text-center">
-        <h6 className="mb-0 pb-3">
+        <h6 className="login-form-tabs mb-0">
           <span
             role="button"
             onClick={() => setIsSignUp(false)}
             style={{
               cursor: "pointer",
-              color: isSignUp ? "#334155" : "#814141",
+              color: isSignUp ? "#f2f2f2" : "var(--main-red-accent)",
             }}
           >
             Log In{" "}
@@ -24,7 +24,7 @@ const LoginForm: FC = () => {
             onClick={() => setIsSignUp(true)}
             style={{
               cursor: "pointer",
-              color: isSignUp ? "#814141" : "#334155",
+              color: isSignUp ? "var(--main-red-accent)" : "#f2f2f2",
             }}
           >
             Sign Up

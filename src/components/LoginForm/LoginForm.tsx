@@ -1,121 +1,80 @@
-import { type FC, useId, useState } from "react";
+import { type ComponentPropsWithoutRef, type FC, useState } from "react";
 import "./loginform.css";
+import LoginPanel from "./LoginPanel";
+import RegisterPanel from "./RegisterPanel";
+
+type FormOnSubmit = NonNullable<ComponentPropsWithoutRef<"form">["onSubmit"]>;
 
 const LoginForm: FC = () => {
-  const checkboxId = useId();
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [activeTab, setActiveTab] = useState<"login" | "register">("login");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [isSubmittingLogin, setIsSubmittingLogin] = useState(false);
+
+  const handleLoginSubmit: FormOnSubmit = async (e) => {
+    e.preventDefault();
+    setLoginError("");
+    setIsSubmittingLogin(true);
+
+    try {
+      // Login wiring not implemented yet; keep current behavior.
+      console.log(email, password);
+    } catch (err) {
+      setLoginError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setIsSubmittingLogin(false);
+    }
+  };
 
   return (
-    <div className="section">
-      <div className="section pb-5 pt-5 pt-sm-2 text-center">
-        <h6 className="login-form-tabs mb-0">
-          <span
-            role="button"
-            onClick={() => setIsSignUp(false)}
-            style={{
-              cursor: "pointer",
-              color: isSignUp ? "#f2f2f2" : "var(--main-red-accent)",
-            }}
+    <section className="login-shell">
+      <div className="login-card">
+        <div className="login-card-header">
+          <h2 className="login-title">Welcome, traveler</h2>
+          <p className="login-subtitle">Enter the hall or pledge your name.</p>
+        </div>
+
+        <div className="login-tabs" role="tablist" aria-label="Authentication">
+          <button
+            type="button"
+            role="tab"
+            className={activeTab === "login" ? "login-tab is-active" : "login-tab"}
+            aria-selected={activeTab === "login"}
+            onClick={() => setActiveTab("login")}
           >
-            Log In{" "}
-          </span>
-          <span
-            role="button"
-            onClick={() => setIsSignUp(true)}
-            style={{
-              cursor: "pointer",
-              color: isSignUp ? "var(--main-red-accent)" : "#f2f2f2",
-            }}
+            Log in
+          </button>
+          <button
+            type="button"
+            role="tab"
+            className={
+              activeTab === "register" ? "login-tab is-active" : "login-tab"
+            }
+            aria-selected={activeTab === "register"}
+            onClick={() => setActiveTab("register")}
           >
-            Sign Up
-          </span>
-        </h6>
-        <input
-          className="checkbox"
-          type="checkbox"
-          id={checkboxId}
-          name="reg-log"
-          checked={isSignUp}
-          onChange={(e) => setIsSignUp(e.target.checked)}
-        />
-        <label htmlFor={checkboxId}></label>
-        <div className="card-3d-wrap mx-auto">
-          <div className="card-3d-wrapper rounded-md">
-            {/* Login Form */}
-            <div className="card-front">
-              <div className="center-wrap">
-                <div className="section text-center">
-                  <h4 className="mb-4 pb-3 text-white">Log In</h4>
-                  <div className="form-group">
-                    <input
-                      type="email"
-                      name="login-email"
-                      className="form-style text-white"
-                      placeholder="Your Email:"
-                      id="login-email"
-                      autoComplete="off"
-                    />
-                    <i className="input-icon uil uil-at"></i>
-                  </div>
-                  <div className="form-group mt-2">
-                    <input
-                      type="password"
-                      name="login-password"
-                      className="form-style text-white"
-                      placeholder="Your Password:"
-                      id="login-password"
-                      autoComplete="off"
-                    />
-                    <i className="input-icon uil uil-lock-alt"></i>
-                  </div>
-                  <a href="#" className="btn mt-4">
-                    submit
-                  </a>
-                  <p className="mb-0 mt-4 text-center">
-                    <a href="#0" className="link">
-                      Forgot your password?
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Registration Form */}
-            <div className="card-back">
-              <div className="center-wrap">
-                <div className="section text-center">
-                  <h4 className="mb-4 pb-3">Sign Up</h4>
-                  <div className="form-group mt-2">
-                    <input
-                      type="email"
-                      name="registration-email"
-                      className="form-style"
-                      placeholder="Your Email"
-                      id="registration-email"
-                      autoComplete="off"
-                    />
-                    <i className="input-icon uil uil-at"></i>
-                  </div>
-                  <div className="form-group mt-2">
-                    <input
-                      type="password"
-                      name="registration-password"
-                      className="form-style"
-                      placeholder="Your Password"
-                      id="registration-password"
-                      autoComplete="off"
-                    />
-                    <i className="input-icon uil uil-lock-alt"></i>
-                  </div>
-                  <a href="#" className="btn mt-4">
-                    submit
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+            Register
+          </button>
+        </div>
+
+        <div className="login-panel" role="tabpanel">
+          {activeTab === "login" ? (
+            <LoginPanel
+              email={email}
+              password={password}
+              onEmailChange={setEmail}
+              onPasswordChange={setPassword}
+              onSubmit={handleLoginSubmit}
+              isSubmitting={isSubmittingLogin}
+              message={loginError}
+            />
+          ) : (
+            <RegisterPanel />
+          )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

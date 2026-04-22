@@ -1,118 +1,117 @@
 .full-height {
   min-height: 100vh;
 }
-[type="checkbox"]:checked,
-[type="checkbox"]:not(:checked) {
-  position: absolute;
-  left: -9999px;
-}
-.checkbox:checked + label,
-.checkbox:not(:checked) + label {
-  position: relative;
-  display: block;
-  text-align: center;
-  width: 90px;
-  height: 16px;
-  border-radius: 8px;
-  padding: 0;
-  margin: 10px auto;
-  cursor: pointer;
-  background-color: #FAD5A5;
-}
-.checkbox:checked + label:before,
-.checkbox:not(:checked) + label:before {
-  position: absolute;
-  display: block;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: #FAD5A5;
-  background-color: #23272b;
-  font-family:
-    system-ui, "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji",
-    sans-serif;
-  content: "☝️";
-  z-index: 20;
-  top: -10px;
-  left: -10px;
-  line-height: 36px;
-  text-align: center;
-  font-size: 24px;
-  transition: all 0.5s ease;
-}
-.checkbox:checked + label:before {
-  transform: translateX(70px) rotate(360deg);
+
+.login-shell {
+  display: grid;
+  place-items: center;
 }
 
-.card-3d-wrap {
-  position: relative;
-  width: 320px;
-  max-width: 100%;
-  height: 300px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  perspective: 800px;
-  margin-top: 60px;
-}
-.card-3d-wrapper {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  transition: all 600ms ease-out;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
-.card-front,
-.card-back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border-radius: var(--main-border-radius);
-  left: 0;
-  top: 0;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.card-front {
+.login-card {
+  width: min(420px, 100%);
+  border-radius: 14px;
+  padding: 20px;
   background:
-    radial-gradient(ellipse 130% 90% at 25% 15%, rgba(255, 255, 255, 0.14) 0%, transparent 55%),
-    radial-gradient(ellipse 90% 70% at 78% 88%, rgba(0, 0, 0, 0.4) 0%, transparent 50%),
-    linear-gradient(155deg, #3d4d62 0%, #2c3340 42%, #1c2026 100%);
+    radial-gradient(ellipse 120% 90% at 30% 10%, rgba(255, 255, 255, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 80% at 75% 90%, rgba(0, 0, 0, 0.25) 0%, transparent 55%),
+    linear-gradient(180deg, #f3e0b8 0%, #e8cf9a 35%, #e2c68c 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    inset 3px 3px 14px rgba(255, 255, 255, 0.05),
-    inset -4px -6px 18px rgba(0, 0, 0, 0.28);
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(36, 25, 12, 0.55);
+  position: relative;
+  isolation: isolate;
 }
 
-.card-back {
-  background: linear-gradient(145deg, #334155, #23272b);
-  transform: rotateY(180deg);
-}
-.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
-  transform: rotateY(180deg);
-}
-.center-wrap {
+.login-card::before {
+  content: "";
   position: absolute;
-  width: 100%;
-  padding: 0 35px;
-  top: 50%;
-  left: 0;
-  transform: translate3d(0, -50%, 35px) perspective(100px);
-  z-index: 20;
-  display: block;
+  inset: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(82, 56, 24, 0.35);
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 40px rgba(73, 45, 18, 0.22);
 }
 
-.card-back .center-wrap {
-  top: 45%;
+.login-card-header {
+  padding: 6px 6px 10px;
+  text-align: center;
+}
+
+.login-title {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+  color: #2a1a0b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.login-subtitle {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: rgba(42, 26, 11, 0.78);
+}
+
+.login-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px 6px 14px;
+}
+
+.login-tab {
+  appearance: none;
+  border: 1px solid rgba(35, 24, 12, 0.45);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+  color: rgba(26, 16, 8, 0.75);
+  background:
+    linear-gradient(180deg, rgba(28, 19, 10, 0.10) 0%, rgba(28, 19, 10, 0.05) 100%);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.login-tab:hover {
+  transform: translateY(-1px);
+}
+
+.login-tab.is-active {
+  border-color: rgba(79, 16, 10, 0.65);
+  color: #2a1a0b;
+  background:
+    radial-gradient(110% 140% at 30% 20%, rgba(255, 255, 255, 0.26), transparent 55%),
+    linear-gradient(180deg, rgba(121, 59, 1, 0.22) 0%, rgba(121, 59, 1, 0.10) 100%);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.login-tab:focus-visible {
+  outline: 2px solid rgba(140, 48, 32, 0.85);
+  outline-offset: 2px;
+}
+
+.login-panel {
+  padding: 6px;
+}
+
+.auth-panel {
+  color: #1b1208;
+}
+
+.auth-panel-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  color: #2a1a0b;
 }
 
 .form-group {
@@ -131,17 +130,24 @@
   line-height: 18px;
   letter-spacing: 0.5px;
   outline: none;
-  background-color: #1f2029;
-  border: 1px solid var(--main-accent);
+  color: #22150a;
+  background:
+    radial-gradient(140% 120% at 18% 0%, rgba(255, 255, 255, 0.40) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.25) 100%);
+  border: 1px solid rgba(46, 30, 14, 0.45);
   -webkit-transition: all 250ms linear;
   transition: all 250ms linear;
-  box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 .form-style:focus,
 .form-style:active {
-  border: 1px solid var(--main-yellow-accent);
+  border: 1px solid rgba(140, 48, 32, 0.75);
   outline: none;
-  box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.18),
+    0 0 0 3px rgba(140, 48, 32, 0.18);
 }
 .input-icon {
   position: absolute;
@@ -151,28 +157,28 @@
   font-size: 24px;
   line-height: 48px;
   text-align: left;
-  color: var(--main-yellow-accent);
+  color: rgba(92, 33, 16, 0.85);
   -webkit-transition: all 250ms linear;
   transition: all 250ms linear;
 }
 
 .form-group input:-ms-input-placeholder {
-  color: #fff;
+  color: rgba(34, 21, 10, 0.70);
   -webkit-transition: all 250ms linear;
   transition: all 250ms linear;
 }
 .form-group input::-moz-placeholder {
-  color: #fff;
+  color: rgba(34, 21, 10, 0.70);
   -webkit-transition: all 250ms linear;
   transition: all 250ms linear;
 }
 .form-group input:-moz-placeholder {
-  color: #fff;
+  color: rgba(34, 21, 10, 0.70);
   -webkit-transition: all 250ms linear;
   transition: all 250ms linear;
 }
 .form-group input::-webkit-input-placeholder {
-  color: #fff;
+  color: rgba(34, 21, 10, 0.70);
   -webkit-transition: all 250ms linear;
   transition: all 250ms linear;
 }
@@ -221,20 +227,29 @@
   -ms-flex-pack: center;
   text-align: center;
   border: none;
-  background-color: var(--main-yellow-accent);
-  color: var(--main-accent);
-  box-shadow: 0 8px 24px 0 rgba(255, 235, 167, 0.2);
+  color: #f8e9c8;
+  background:
+    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.20) 0%, transparent 55%),
+    linear-gradient(180deg, #6b1512 0%, #4a0f0e 100%);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 .btn:active,
 .btn:focus {
-  background-color: var(--main-accent);
-  color: var(--main-yellow-accent);
-  box-shadow: 0 8px 24px 0 rgba(121, 59, 1, 0.2);
+  background:
+    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.18) 0%, transparent 55%),
+    linear-gradient(180deg, #7b1a16 0%, #531110 100%);
+  color: #fff2d7;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.25),
+    0 0 0 3px rgba(140, 48, 32, 0.18);
 }
 .btn:hover {
-  background-color: var(--main-accent);
-  color: var(--main-yellow-accent);
-  box-shadow: 0 8px 24px 0 rgba(121, 59, 1, 0.2);
+  transform: translateY(-1px);
+  background:
+    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+    linear-gradient(180deg, #7b1a16 0%, #531110 100%);
 }
 
 .logo {
@@ -252,12 +267,5 @@
 }
 
 .login-form-tabs {
-  display: inline-block;
-  box-sizing: border-box;
-  background-color: rgba(15, 23, 42, 0.1);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--main-border-radius);
-  padding: 0.35rem 1rem 0.35rem;
+  display: none;
 }

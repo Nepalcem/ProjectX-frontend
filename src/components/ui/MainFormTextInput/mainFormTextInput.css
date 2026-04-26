@@ -1,0 +1,114 @@
+.main-text-input-group {
+  position: relative;
+  display: block;
+  padding: 0;
+}
+
+.main-text-input-field {
+  padding: 12px 15px;
+  padding-left: 35px;
+  height: 40px;
+  width: 100%;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: #22150a;
+  background:
+    radial-gradient(140% 120% at 18% 0%, rgba(255, 255, 255, 0.40) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.25) 100%);
+  border: 1px solid rgba(46, 30, 14, 0.45);
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.main-text-input-field:focus,
+.main-text-input-field:active {
+  border: 1px solid rgba(140, 48, 32, 0.75);
+  outline: none;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.18),
+    0 0 0 3px rgba(140, 48, 32, 0.18);
+}
+
+.main-text-input-icon {
+  position: absolute;
+  top: 0;
+  left: 8px;
+  height: 40px;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: left;
+  color: rgba(92, 33, 16, 0.85);
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+
+.main-text-input-icon--lucide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  font-size: 0;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.main-text-input-icon--lucide svg {
+  display: block;
+  flex-shrink: 0;
+  color: rgba(92, 33, 16, 0.85);
+}
+
+.main-text-input-group input:-ms-input-placeholder {
+  color: rgba(34, 21, 10, 0.70);
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+
+.main-text-input-group input::-moz-placeholder {
+  color: rgba(34, 21, 10, 0.70);
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+
+.main-text-input-group input:-moz-placeholder {
+  color: rgba(34, 21, 10, 0.70);
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+
+.main-text-input-group input::-webkit-input-placeholder {
+  color: rgba(34, 21, 10, 0.70);
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+
+.main-text-input-group input:focus:-ms-input-placeholder {
+  opacity: 0;
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+
+.main-text-input-group input:focus::-moz-placeholder {
+  opacity: 0;
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+
+.main-text-input-group input:focus:-moz-placeholder {
+  opacity: 0;
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+
+.main-text-input-group input:focus::-webkit-input-placeholder {
+  opacity: 0;
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}

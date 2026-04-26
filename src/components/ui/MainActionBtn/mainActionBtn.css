@@ -1,0 +1,62 @@
+.main-action-btn {
+  border-radius: 4px;
+  height: 36px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+  border: none;
+  color: #f8e9c8;
+  background:
+    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.20) 0%, transparent 55%),
+    linear-gradient(180deg, #6b1512 0%, #4a0f0e 100%);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+}
+
+.main-action-btn:active,
+.main-action-btn:focus {
+  background:
+    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.18) 0%, transparent 55%),
+    linear-gradient(180deg, #7b1a16 0%, #531110 100%);
+  color: #fff2d7;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.25),
+    0 0 0 3px rgba(140, 48, 32, 0.18);
+}
+
+.main-action-btn:hover {
+  transform: translateY(-1px);
+  background:
+    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+    linear-gradient(180deg, #7b1a16 0%, #531110 100%);
+}
+
+.main-action-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+.main-action-btn:disabled:hover {
+  transform: none;
+}
+

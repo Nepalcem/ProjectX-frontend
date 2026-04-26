@@ -1,5 +1,7 @@
 import { type ComponentPropsWithoutRef, type FC, useState } from "react";
+import { UserRoundCheck, UserRoundPlus } from "lucide-react";
 import "./loginform.css";
+import YellowPlate from "../ui/YellowPlate/YellowPlate";
 import LoginPanel from "./LoginPanel";
 import RegisterPanel from "./RegisterPanel";
 
@@ -28,8 +30,7 @@ const LoginForm: FC = () => {
   };
 
   return (
-    <section className="login-shell">
-      <div className="login-card">
+    <YellowPlate>
         <div className="login-card-header">
           <h2 className="login-title">Welcome, traveler</h2>
           <p className="login-subtitle">Enter the hall or pledge your name.</p>
@@ -43,6 +44,7 @@ const LoginForm: FC = () => {
             aria-selected={activeTab === "login"}
             onClick={() => setActiveTab("login")}
           >
+            <UserRoundCheck className="login-tab__icon" aria-hidden />
             Log in
           </button>
           <button
@@ -54,6 +56,7 @@ const LoginForm: FC = () => {
             aria-selected={activeTab === "register"}
             onClick={() => setActiveTab("register")}
           >
+            <UserRoundPlus className="login-tab__icon" aria-hidden />
             Register
           </button>
         </div>
@@ -73,8 +76,7 @@ const LoginForm: FC = () => {
             <RegisterPanel />
           )}
         </div>
-      </div>
-    </section>
+    </YellowPlate>
   );
 };
 

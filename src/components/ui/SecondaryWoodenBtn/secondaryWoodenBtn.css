@@ -1,0 +1,58 @@
+.secondary-wooden-btn {
+  appearance: none;
+  border: 1px solid rgba(35, 24, 12, 0.45);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+  color: rgba(26, 16, 8, 0.75);
+  background:
+    radial-gradient(140% 180% at 20% 15%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(28, 19, 10, 0.12) 0%, rgba(28, 19, 10, 0.04) 100%);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.20),
+    0 2px 0 rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.secondary-wooden-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 22px rgba(0, 0, 0, 0.22),
+    0 2px 0 rgba(255, 255, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -12px 22px rgba(0, 0, 0, 0.12);
+}
+
+.secondary-wooden-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.20),
+    inset 0 2px 8px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+.secondary-wooden-btn:focus-visible {
+  outline: 2px solid rgba(140, 48, 32, 0.85);
+  outline-offset: 2px;
+}
+
+.secondary-wooden-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+.secondary-wooden-btn:disabled:hover {
+  transform: none;
+}
+

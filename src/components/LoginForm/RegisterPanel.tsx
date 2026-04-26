@@ -1,7 +1,10 @@
 import { type FC, useState } from "react";
+import { Lock, Mail } from "lucide-react";
 import FormMessage from "./FormMessage";
 import axios, { isAxiosError } from "axios";
 import { emailRegExp, passwordRegExp } from "../../constants/regularExpressions";
+import MainActionBtn from "../ui/MainActionBtn/MainActionBtn";
+import MainTextInput from "../ui/MainFormTextInput/MainFormTextInput";
 
 const API_URL = "http://localhost:3000";
 
@@ -65,46 +68,46 @@ const RegisterPanel: FC = () => {
       <h3 className="auth-panel-title">Register</h3>
       <FormMessage message={registerError} className="mb-3 text-sm" />
       <form onSubmit={handleRegisterSubmit}>
-        <div className="form-group mt-2">
-          <input
-            type="email"
-            name="registration-email"
-            className="form-style"
-            placeholder="Your Email:"
-            id="registration-email"
-            autoComplete="off"
-            value={registrationEmail}
-            onChange={(e) => setRegistrationEmail(e.target.value)}
-          />
-          <i className="input-icon uil uil-at"></i>
-        </div>
+        <MainTextInput
+          className="mt-2"
+          type="email"
+          name="registration-email"
+          placeholder="Your Email:"
+          id="registration-email"
+          autoComplete="off"
+          value={registrationEmail}
+          onChange={(e) => setRegistrationEmail(e.target.value)}
+          icon={Mail}
+        />
         {showHintsAfterFailedSubmit ? (
           <p className="mt-2 text-left text-[0.6rem] leading-snug opacity-80">
             Email must have no spaces, and domain must be at least 2 characters.
           </p>
         ) : null}
-        <div className="form-group mt-2">
-          <input
-            type="password"
-            name="registration-password"
-            className="form-style"
-            placeholder="Your Password:"
-            id="registration-password"
-            autoComplete="off"
-            value={registrationPassword}
-            onChange={(e) => setRegistrationPassword(e.target.value)}
-          />
-          <i className="input-icon uil uil-lock-alt"></i>
-        </div>
+        <MainTextInput
+          className="mt-2"
+          type="password"
+          name="registration-password"
+          placeholder="Your Password:"
+          id="registration-password"
+          autoComplete="off"
+          value={registrationPassword}
+          onChange={(e) => setRegistrationPassword(e.target.value)}
+          icon={Lock}
+        />
         {showHintsAfterFailedSubmit ? (
           <p className="text-[0.6rem]">
             At least 8 characters, one uppercase letter, one lowercase letter,
             and one number or symbol
           </p>
         ) : null}
-        <button type="submit" className="btn mt-4" disabled={isSubmittingRegister}>
+        <MainActionBtn
+          type="submit"
+          className="mt-4"
+          disabled={isSubmittingRegister}
+        >
           Pledge
-        </button>
+        </MainActionBtn>
       </form>
     </div>
   );

@@ -1,5 +1,8 @@
 import type { ComponentPropsWithoutRef, FC } from "react";
+import { Lock, Mail } from "lucide-react";
 import FormMessage from "./FormMessage";
+import MainActionBtn from "../ui/MainActionBtn/MainActionBtn";
+import MainTextInput from "../ui/MainFormTextInput/MainFormTextInput";
 
 type FormOnSubmit = NonNullable<ComponentPropsWithoutRef<"form">["onSubmit"]>;
 
@@ -27,35 +30,30 @@ const LoginPanel: FC<Props> = ({
       <h3 className="auth-panel-title">Log in</h3>
       <FormMessage message={message} className="mb-3 text-sm" />
       <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <input
-            type="email"
-            name="login-email"
-            className="form-style"
-            placeholder="Your Email:"
-            id="login-email"
-            autoComplete="off"
-            value={email}
-            onChange={(e) => onEmailChange(e.target.value)}
-          />
-          <i className="input-icon uil uil-at"></i>
-        </div>
-        <div className="form-group mt-2">
-          <input
-            type="password"
-            name="login-password"
-            className="form-style"
-            placeholder="Your Password:"
-            id="login-password"
-            autoComplete="off"
-            value={password}
-            onChange={(e) => onPasswordChange(e.target.value)}
-          />
-          <i className="input-icon uil uil-lock-alt"></i>
-        </div>
-        <button type="submit" className="btn mt-4" disabled={isSubmitting}>
+        <MainTextInput
+          type="email"
+          name="login-email"
+          placeholder="Your Email:"
+          id="login-email"
+          autoComplete="off"
+          value={email}
+          onChange={(e) => onEmailChange(e.target.value)}
+          icon={Mail}
+        />
+        <MainTextInput
+          className="mt-2"
+          type="password"
+          name="login-password"
+          placeholder="Your Password:"
+          id="login-password"
+          autoComplete="off"
+          value={password}
+          onChange={(e) => onPasswordChange(e.target.value)}
+          icon={Lock}
+        />
+        <MainActionBtn type="submit" className="mt-4" disabled={isSubmitting}>
           Enter
-        </button>
+        </MainActionBtn>
       </form>
       <p className="mb-0 mt-4 text-center">
         <a href="#0" className="link">

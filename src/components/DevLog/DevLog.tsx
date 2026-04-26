@@ -17,7 +17,7 @@ export default function DevLog() {
   useEffect(() => {
     let cancelled = false;
     fetch(
-      "https://api.github.com/repos/nepalcem/projectX-frontend/commits?per_page=5"
+      "https://api.github.com/repos/nepalcem/projectX-frontend/commits?per_page=10"
     )
       .then(res => res.json())
       .then(data => {

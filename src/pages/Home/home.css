@@ -6,6 +6,14 @@
   gap: 1.5rem;
 }
 
+@media (max-width: 767px) {
+  .home-page {
+    flex: 1;
+    justify-content: space-around;
+    gap: 0;
+  }
+}
+
 @media (min-width: 768px) {
   .home-page {
     gap: 2rem;

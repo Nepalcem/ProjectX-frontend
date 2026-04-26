@@ -2,39 +2,6 @@
   min-height: 100vh;
 }
 
-.login-shell {
-  display: grid;
-  place-items: center;
-}
-
-.login-card {
-  width: min(420px, 100%);
-  border-radius: 14px;
-  padding: 20px;
-  background:
-    radial-gradient(ellipse 120% 90% at 30% 10%, rgba(255, 255, 255, 0.14) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 80% at 75% 90%, rgba(0, 0, 0, 0.25) 0%, transparent 55%),
-    linear-gradient(180deg, #f3e0b8 0%, #e8cf9a 35%, #e2c68c 100%);
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(36, 25, 12, 0.55);
-  position: relative;
-  isolation: isolate;
-}
-
-.login-card::before {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border-radius: 10px;
-  border: 1px solid rgba(82, 56, 24, 0.35);
-  pointer-events: none;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
-    inset 0 0 40px rgba(73, 45, 18, 0.22);
-}
-
 .login-card-header {
   padding: 6px 6px 10px;
   text-align: center;
@@ -71,16 +38,47 @@
   text-transform: uppercase;
   font-size: 12px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   color: rgba(26, 16, 8, 0.75);
   background:
-    linear-gradient(180deg, rgba(28, 19, 10, 0.10) 0%, rgba(28, 19, 10, 0.05) 100%);
+    radial-gradient(140% 180% at 20% 15%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(28, 19, 10, 0.12) 0%, rgba(28, 19, 10, 0.04) 100%);
   box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    0 10px 18px rgba(0, 0, 0, 0.20),
+    0 2px 0 rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.login-tab__icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
 }
 
 .login-tab:hover {
   transform: translateY(-1px);
+  box-shadow:
+    0 14px 22px rgba(0, 0, 0, 0.22),
+    0 2px 0 rgba(255, 255, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -12px 22px rgba(0, 0, 0, 0.12);
+}
+
+.login-tab:active {
+  transform: translateY(0);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.20),
+    inset 0 2px 8px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
 }
 
 .login-tab.is-active {
@@ -90,8 +88,10 @@
     radial-gradient(110% 140% at 30% 20%, rgba(255, 255, 255, 0.26), transparent 55%),
     linear-gradient(180deg, rgba(121, 59, 1, 0.22) 0%, rgba(121, 59, 1, 0.10) 100%);
   box-shadow:
-    0 10px 22px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    0 14px 26px rgba(0, 0, 0, 0.24),
+    0 2px 0 rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -12px 22px rgba(74, 29, 0, 0.18);
 }
 
 .login-tab:focus-visible {
@@ -112,144 +112,6 @@
   font-size: 16px;
   letter-spacing: 0.2px;
   color: #2a1a0b;
-}
-
-.form-group {
-  position: relative;
-  display: block;
-  padding: 0;
-}
-.form-style {
-  padding: 12px 15px;
-  padding-left: 35px;
-  height: 40px;
-  width: 100%;
-  font-weight: 500;
-  border-radius: 4px;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0.5px;
-  outline: none;
-  color: #22150a;
-  background:
-    radial-gradient(140% 120% at 18% 0%, rgba(255, 255, 255, 0.40) 0%, transparent 55%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.25) 100%);
-  border: 1px solid rgba(46, 30, 14, 0.45);
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-  box-shadow:
-    0 6px 14px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-}
-.form-style:focus,
-.form-style:active {
-  border: 1px solid rgba(140, 48, 32, 0.75);
-  outline: none;
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.18),
-    0 0 0 3px rgba(140, 48, 32, 0.18);
-}
-.input-icon {
-  position: absolute;
-  top: 0;
-  left: 18px;
-  height: 48px;
-  font-size: 24px;
-  line-height: 48px;
-  text-align: left;
-  color: rgba(92, 33, 16, 0.85);
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-}
-
-.form-group input:-ms-input-placeholder {
-  color: rgba(34, 21, 10, 0.70);
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-}
-.form-group input::-moz-placeholder {
-  color: rgba(34, 21, 10, 0.70);
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-}
-.form-group input:-moz-placeholder {
-  color: rgba(34, 21, 10, 0.70);
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-}
-.form-group input::-webkit-input-placeholder {
-  color: rgba(34, 21, 10, 0.70);
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-}
-.form-group input:focus:-ms-input-placeholder {
-  opacity: 0;
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-}
-.form-group input:focus::-moz-placeholder {
-  opacity: 0;
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-}
-.form-group input:focus:-moz-placeholder {
-  opacity: 0;
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-}
-.form-group input:focus::-webkit-input-placeholder {
-  opacity: 0;
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-}
-
-.btn {
-  border-radius: 4px;
-  height: 36px;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  -webkit-transition: all 250ms linear;
-  transition: all 250ms linear;
-  padding: 0 30px;
-  letter-spacing: 1px;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -ms-flex-pack: center;
-  text-align: center;
-  border: none;
-  color: #f8e9c8;
-  background:
-    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.20) 0%, transparent 55%),
-    linear-gradient(180deg, #6b1512 0%, #4a0f0e 100%);
-  box-shadow:
-    0 10px 22px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
-}
-.btn:active,
-.btn:focus {
-  background:
-    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.18) 0%, transparent 55%),
-    linear-gradient(180deg, #7b1a16 0%, #531110 100%);
-  color: #fff2d7;
-  box-shadow:
-    0 10px 22px rgba(0, 0, 0, 0.25),
-    0 0 0 3px rgba(140, 48, 32, 0.18);
-}
-.btn:hover {
-  transform: translateY(-1px);
-  background:
-    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
-    linear-gradient(180deg, #7b1a16 0%, #531110 100%);
 }
 
 .logo {

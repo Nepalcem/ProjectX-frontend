@@ -1,0 +1,14 @@
+/* Same width as .app-container; inner YellowPlate (bar) supplies padding and surface */
+.top-bar {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.top-bar nav {
+  margin: 5px 0;
+}

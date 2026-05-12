@@ -94,6 +94,7 @@ const RegisterPanel: FC = () => {
           value={registrationPassword}
           onChange={(e) => setRegistrationPassword(e.target.value)}
           icon={Lock}
+          showPasswordToggle
         />
         {showHintsAfterFailedSubmit ? (
           <p className="text-[0.6rem]">

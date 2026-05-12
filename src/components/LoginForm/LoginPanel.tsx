@@ -50,6 +50,7 @@ const LoginPanel: FC<Props> = ({
           value={password}
           onChange={(e) => onPasswordChange(e.target.value)}
           icon={Lock}
+          showPasswordToggle
         />
         <MainActionBtn type="submit" className="mt-4" disabled={isSubmitting}>
           Enter

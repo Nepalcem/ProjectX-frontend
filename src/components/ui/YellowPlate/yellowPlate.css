@@ -3,6 +3,13 @@
   place-items: center;
 }
 
+.yellow-plate-shell--bar {
+  display: block;
+  width: 100%;
+  flex: 1;
+  min-width: 0;
+}
+
 .yellow-plate-card {
   width: min(420px, 100%);
   border-radius: 14px;
@@ -29,5 +36,32 @@
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.08),
     inset 0 0 40px rgba(73, 45, 18, 0.22);
+}
+
+.yellow-plate-card--bar {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: var(--main-border-radius);
+  padding: 0.5rem 1.5rem;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+@media (min-width: 768px) {
+  .yellow-plate-card--bar {
+    padding: 0.5rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .yellow-plate-card--bar {
+    padding: 0.5rem 2.5rem;
+  }
+}
+
+.yellow-plate-card--bar::before {
+  inset: 5px;
+  border-radius: max(2px, calc(var(--main-border-radius) - 2px));
 }
 

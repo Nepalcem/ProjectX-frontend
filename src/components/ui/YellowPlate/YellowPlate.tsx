@@ -2,14 +2,14 @@ import type { FC, PropsWithChildren } from "react";
 import "./yellowPlate.css";
 
 type Props = PropsWithChildren<{
-  className?: string;
-  cardClassName?: string;
+  variant?: "card" | "bar";
 }>;
 
-const YellowPlate: FC<Props> = ({ children }) => {
+const YellowPlate: FC<Props> = ({ children, variant = "card" }) => {
+  const bar = variant === "bar";
   return (
-    <section className="yellow-plate-shell">
-      <div className="yellow-plate-card">
+    <section className={bar ? "yellow-plate-shell yellow-plate-shell--bar" : "yellow-plate-shell"}>
+      <div className={bar ? "yellow-plate-card yellow-plate-card--bar" : "yellow-plate-card"}>
         {children}
       </div>
     </section>
@@ -17,4 +17,3 @@ const YellowPlate: FC<Props> = ({ children }) => {
 };
 
 export default YellowPlate;
-

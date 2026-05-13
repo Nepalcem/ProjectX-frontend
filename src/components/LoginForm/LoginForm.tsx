@@ -1,4 +1,10 @@
-import { type ComponentPropsWithoutRef, type FC, useState } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  type FC,
+  useEffect,
+  useState,
+} from "react";
+import { useSearchParams } from "react-router-dom";
 import { UserRoundCheck, UserRoundPlus } from "lucide-react";
 import "./loginform.css";
 import YellowPlate from "@/components/ui/YellowPlate/YellowPlate";
@@ -7,12 +13,28 @@ import RegisterPanel from "./RegisterPanel";
 
 type FormOnSubmit = NonNullable<ComponentPropsWithoutRef<"form">["onSubmit"]>;
 
+const EMAIL_VERIFIED_MSG =
+  "Email verification completed. Please log in.";
+
 const LoginForm: FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
   const [isSubmittingLogin, setIsSubmittingLogin] = useState(false);
+  const [emailVerifiedMessage, setEmailVerifiedMessage] = useState<
+    string | undefined
+  >(undefined);
+
+  useEffect(() => {
+    if (searchParams.get("emailVerified") !== "1") return;
+    setEmailVerifiedMessage(EMAIL_VERIFIED_MSG);
+    setActiveTab("login");
+    const next = new URLSearchParams(searchParams);
+    next.delete("emailVerified");
+    setSearchParams(next, { replace: true });
+  }, [searchParams, setSearchParams]);
 
   const handleLoginSubmit: FormOnSubmit = async (e) => {
     e.preventDefault();
@@ -71,6 +93,7 @@ const LoginForm: FC = () => {
               onSubmit={handleLoginSubmit}
               isSubmitting={isSubmittingLogin}
               message={loginError}
+              emailVerifiedMessage={emailVerifiedMessage}
             />
           ) : (
             <RegisterPanel />

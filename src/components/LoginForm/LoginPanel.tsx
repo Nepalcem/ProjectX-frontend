@@ -14,6 +14,7 @@ type Props = {
   onSubmit: FormOnSubmit;
   isSubmitting: boolean;
   message?: string;
+  emailVerifiedMessage?: string;
 };
 
 const LoginPanel: FC<Props> = ({
@@ -24,10 +25,16 @@ const LoginPanel: FC<Props> = ({
   onSubmit,
   isSubmitting,
   message,
+  emailVerifiedMessage,
 }) => {
   return (
     <div className="auth-panel">
       <h3 className="auth-panel-title">Log in</h3>
+      <FormMessage
+        variant="success"
+        message={emailVerifiedMessage}
+        className="mb-3 text-sm"
+      />
       <FormMessage message={message} className="mb-3 text-sm" />
       <form onSubmit={onSubmit}>
         <MainTextInput

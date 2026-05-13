@@ -1,7 +1,7 @@
 import { type FC, useState } from "react";
 import { Lock, Mail } from "lucide-react";
 import axios, { isAxiosError } from "axios";
-import { API_URL } from "@/api/constants";
+import { API_URL_LOCAL } from "@/api/constants";
 import MainActionBtn from "@/components/ui/MainActionBtn/MainActionBtn";
 import MainTextInput from "@/components/ui/MainFormTextInput/MainFormTextInput";
 import { emailRegExp, passwordRegExp } from "@/constants/regularExpressions";
@@ -12,6 +12,7 @@ const RegisterPanel: FC = () => {
   const [registrationEmail, setRegistrationEmail] = useState("");
   const [registrationPassword, setRegistrationPassword] = useState("");
   const [registerError, setRegisterError] = useState("");
+  const [registerSuccess, setRegisterSuccess] = useState("");
   const [isSubmittingRegister, setIsSubmittingRegister] = useState(false);
   const [showHintsAfterFailedSubmit, setShowHintsAfterFailedSubmit] =
     useState(false);
@@ -21,6 +22,7 @@ const RegisterPanel: FC = () => {
   > = async (e) => {
     e.preventDefault();
     setRegisterError("");
+    setRegisterSuccess("");
     setIsSubmittingRegister(true);
 
     try {
@@ -36,7 +38,7 @@ const RegisterPanel: FC = () => {
         return;
       }
 
-      const res = await axios.post(`${API_URL}/auth/register`, {
+      const res = await axios.post(`${API_URL_LOCAL}/auth/register`, {
         email: registrationEmail,
         password: registrationPassword,
       });
@@ -45,9 +47,12 @@ const RegisterPanel: FC = () => {
 
 
       setRegistrationPassword("");
-      setRegisterError(data.message || "Registered. Please verify your email.");
+      setRegisterSuccess(
+        data.message || "Registered. Please verify your email.",
+      );
     } catch (error: unknown) {
       setShowHintsAfterFailedSubmit(true);
+      setRegisterSuccess("");
       if (isAxiosError(error)) {
         const serverMessage =
           (error.response?.data as { message?: string } | undefined)?.message;
@@ -63,6 +68,11 @@ const RegisterPanel: FC = () => {
   return (
     <div className="auth-panel">
       <h3 className="auth-panel-title">Register</h3>
+      <FormMessage
+        variant="success"
+        message={registerSuccess}
+        className="mb-3 text-sm"
+      />
       <FormMessage message={registerError} className="mb-3 text-sm" />
       <form onSubmit={handleRegisterSubmit}>
         <MainTextInput

@@ -1,7 +1,7 @@
 import { type ComponentPropsWithoutRef, type FC, useState } from "react";
 import { UserRoundCheck, UserRoundPlus } from "lucide-react";
 import "./loginform.css";
-import YellowPlate from "../ui/YellowPlate/YellowPlate";
+import YellowPlate from "@/components/ui/YellowPlate/YellowPlate";
 import LoginPanel from "./LoginPanel";
 import RegisterPanel from "./RegisterPanel";
 

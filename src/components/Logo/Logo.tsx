@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import logoImage from "../../media/logo/logo-2-compressed.png";
+import logoImage from "@/media/logo/logo-2-compressed.png";
 import "./logo.css";
 
 const Logo: FC = () => {

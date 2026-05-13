@@ -1,12 +1,12 @@
 import { type FC, useState } from "react";
 import { Lock, Mail } from "lucide-react";
-import FormMessage from "./FormMessage";
 import axios, { isAxiosError } from "axios";
-import { emailRegExp, passwordRegExp } from "../../constants/regularExpressions";
-import MainActionBtn from "../ui/MainActionBtn/MainActionBtn";
-import MainTextInput from "../ui/MainFormTextInput/MainFormTextInput";
+import { API_URL } from "@/api/constants";
+import MainActionBtn from "@/components/ui/MainActionBtn/MainActionBtn";
+import MainTextInput from "@/components/ui/MainFormTextInput/MainFormTextInput";
+import { emailRegExp, passwordRegExp } from "@/constants/regularExpressions";
+import FormMessage from "./FormMessage";
 
-const API_URL = "http://localhost:3000";
 
 const RegisterPanel: FC = () => {
   const [registrationEmail, setRegistrationEmail] = useState("");
@@ -36,7 +36,6 @@ const RegisterPanel: FC = () => {
         return;
       }
 
-      console.log("Data:", registrationEmail, registrationPassword);
       const res = await axios.post(`${API_URL}/auth/register`, {
         email: registrationEmail,
         password: registrationPassword,
@@ -52,10 +51,8 @@ const RegisterPanel: FC = () => {
       if (isAxiosError(error)) {
         const serverMessage =
           (error.response?.data as { message?: string } | undefined)?.message;
-        console.log(serverMessage ?? error.message);
         setRegisterError(serverMessage || "Registration failed");
       } else {
-        console.log(error);
         setRegisterError("Registration failed");
       }
     } finally {

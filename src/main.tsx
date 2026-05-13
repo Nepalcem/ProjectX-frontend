@@ -3,9 +3,9 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/variables/variables.css";
 import "./index.css";
-import App from "./App.tsx";
-import Home from "./pages/Home/Home";
-import DevLogPage from "./pages/DevLog/DevLogPage";
+import App from "@/App.tsx";
+import DevLogPage from "@/pages/DevLog/DevLogPage";
+import Home from "@/pages/Home/Home";
 
 export const About = () => <h1>About</h1>;
 

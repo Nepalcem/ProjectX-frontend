@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import type { FC } from "react";
-import YellowPlate from "../ui/YellowPlate/YellowPlate";
+import YellowPlate from "@/components/ui/YellowPlate/YellowPlate";
 import "./TopBar.css";
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>

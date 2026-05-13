@@ -1,6 +1,6 @@
 import type { FC } from "react";
-import LoginForm from "../../components/LoginForm/LoginForm";
-import Logo from "../../components/Logo/Logo";
+import LoginForm from "@/components/LoginForm/LoginForm";
+import Logo from "@/components/Logo/Logo";
 import "./home.css";
 
 const Home: FC = () => {

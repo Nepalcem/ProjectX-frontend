@@ -1,8 +1,8 @@
 import type { ComponentPropsWithoutRef, FC } from "react";
 import { Lock, Mail } from "lucide-react";
 import FormMessage from "./FormMessage";
-import MainActionBtn from "../ui/MainActionBtn/MainActionBtn";
-import MainTextInput from "../ui/MainFormTextInput/MainFormTextInput";
+import MainActionBtn from "@/components/ui/MainActionBtn/MainActionBtn";
+import MainTextInput from "@/components/ui/MainFormTextInput/MainFormTextInput";
 
 type FormOnSubmit = NonNullable<ComponentPropsWithoutRef<"form">["onSubmit"]>;
 

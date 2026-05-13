@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import DevLog from "../../components/DevLog/DevLog";
+import DevLog from "@/components/DevLog/DevLog";
 
 const DevLogPage: FC = () => {
   return (

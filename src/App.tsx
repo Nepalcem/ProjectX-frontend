@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { Outlet } from "react-router-dom";
-import TopBar from "./components/TopBar/TopBar";
+import TopBar from "@/components/TopBar/TopBar";
 import "./App.css";
 
 const App: FC = () => {

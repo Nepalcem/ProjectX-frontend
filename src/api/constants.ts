@@ -1,0 +1,1 @@
+export const API_URL = "https://projectx-backend-lol9.onrender.com";

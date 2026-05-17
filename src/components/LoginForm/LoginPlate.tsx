@@ -1,5 +1,4 @@
 import {
-  type ComponentPropsWithoutRef,
   type FC,
   useEffect,
   useState,
@@ -11,45 +10,27 @@ import YellowPlate from "@/components/ui/YellowPlate/YellowPlate";
 import LoginPanel from "./LoginPanel";
 import RegisterPanel from "./RegisterPanel";
 
-type FormOnSubmit = NonNullable<ComponentPropsWithoutRef<"form">["onSubmit"]>;
-
 const EMAIL_VERIFIED_MSG =
   "Email verification completed. Please log in.";
+
+const readEmailVerifiedFromUrl = () =>
+  new URLSearchParams(window.location.search).get("emailVerified") === "1";
 
 const LoginForm: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState("");
-  const [isSubmittingLogin, setIsSubmittingLogin] = useState(false);
-  const [emailVerifiedMessage, setEmailVerifiedMessage] = useState<
-    string | undefined
-  >(undefined);
+  const [emailVerifiedMessage] = useState<string | undefined>(() =>
+    readEmailVerifiedFromUrl() ? EMAIL_VERIFIED_MSG : undefined,
+  );
 
   useEffect(() => {
     if (searchParams.get("emailVerified") !== "1") return;
-    setEmailVerifiedMessage(EMAIL_VERIFIED_MSG);
-    setActiveTab("login");
     const next = new URLSearchParams(searchParams);
     next.delete("emailVerified");
     setSearchParams(next, { replace: true });
   }, [searchParams, setSearchParams]);
 
-  const handleLoginSubmit: FormOnSubmit = async (e) => {
-    e.preventDefault();
-    setLoginError("");
-    setIsSubmittingLogin(true);
 
-    try {
-      // Login wiring not implemented yet; keep current behavior.
-      console.log(email, password);
-    } catch (err) {
-      setLoginError(err instanceof Error ? err.message : "Something went wrong");
-    } finally {
-      setIsSubmittingLogin(false);
-    }
-  };
 
   return (
     <YellowPlate>
@@ -86,13 +67,6 @@ const LoginForm: FC = () => {
         <div className="login-panel" role="tabpanel">
           {activeTab === "login" ? (
             <LoginPanel
-              email={email}
-              password={password}
-              onEmailChange={setEmail}
-              onPasswordChange={setPassword}
-              onSubmit={handleLoginSubmit}
-              isSubmitting={isSubmittingLogin}
-              message={loginError}
               emailVerifiedMessage={emailVerifiedMessage}
             />
           ) : (

@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import LoginForm from "@/components/LoginForm/LoginForm";
+import LoginForm from "@/components/LoginForm/LoginPlate";
 import Logo from "@/components/Logo/Logo";
 import "./home.css";
 

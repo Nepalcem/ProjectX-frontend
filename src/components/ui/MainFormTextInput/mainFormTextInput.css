@@ -36,6 +36,39 @@
     0 0 0 3px rgba(140, 48, 32, 0.18);
 }
 
+/* Override browser autofill (Chrome/Safari/Edge) to match field styling */
+.main-text-input-field:-webkit-autofill,
+.main-text-input-field:-webkit-autofill:hover,
+.main-text-input-field:-webkit-autofill:focus,
+.main-text-input-field:-webkit-autofill:active {
+  -webkit-text-fill-color: #22150a;
+  caret-color: #22150a;
+  border: 1px solid rgba(46, 30, 14, 0.45);
+  /* Large inset shadow replaces the default yellow/blue autofill background */
+  -webkit-box-shadow:
+    0 0 0 1000px #f3e6cf inset,
+    0 6px 14px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 0 0 1000px #f3e6cf inset,
+    0 6px 14px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: background-color 99999s ease-in-out 0s;
+}
+.main-text-input-field:-webkit-autofill:focus,
+.main-text-input-field:-webkit-autofill:active {
+  border: 1px solid rgba(140, 48, 32, 0.75);
+  -webkit-box-shadow:
+    0 0 0 1000px #f3e6cf inset,
+    0 10px 20px rgba(0, 0, 0, 0.18),
+    0 0 0 3px rgba(140, 48, 32, 0.18);
+  box-shadow:
+  0 0 0 1000px #f3e6cf inset,
+  0 10px 20px rgba(0, 0, 0, 0.18),
+  0 0 0 3px rgba(140, 48, 32, 0.18);
+}
+
+
 .main-text-input-icon {
   position: absolute;
   top: 0;

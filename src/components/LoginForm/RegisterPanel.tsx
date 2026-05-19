@@ -1,7 +1,7 @@
 import { type FC, useState } from "react";
 import { Lock, Mail } from "lucide-react";
 import axios, { isAxiosError } from "axios";
-import { API_URL_LOCAL } from "@/api/constants";
+import { API_URL } from "@/api/constants";
 import MainActionBtn from "@/components/ui/MainActionBtn/MainActionBtn";
 import MainTextInput from "@/components/ui/MainFormTextInput/MainFormTextInput";
 import { emailRegExp, passwordRegExp } from "@/constants/regularExpressions";
@@ -38,7 +38,7 @@ const RegisterPanel: FC = () => {
         return;
       }
 
-      const res = await axios.post(`${API_URL_LOCAL}/auth/register`, {
+      const res = await axios.post(`${API_URL}/auth/register`, {
         email: registrationEmail,
         password: registrationPassword,
       });

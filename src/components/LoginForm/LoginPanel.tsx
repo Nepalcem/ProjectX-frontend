@@ -1,7 +1,7 @@
 import { type ComponentPropsWithoutRef, type FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios, { isAxiosError } from "axios";
-import { API_URL_LOCAL } from "@/api/constants";
+import { API_URL } from "@/api/constants";
 import { useAppDispatch } from "@/redux/hooks";
 import { setCredentials } from "@/redux/authSlice";
 import { Lock, Mail } from "lucide-react";
@@ -52,7 +52,7 @@ const LoginPanel: FC<Props> = ({
         return;
       }
 
-      const res = await axios.post<LoginResponse>(`${API_URL_LOCAL}/auth/login`, {
+      const res = await axios.post<LoginResponse>(`${API_URL}/auth/login`, {
         email: loginEmail.trim().toLowerCase(),
         password: loginPassword,
       });

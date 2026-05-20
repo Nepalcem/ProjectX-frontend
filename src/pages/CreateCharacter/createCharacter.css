@@ -1,0 +1,60 @@
+.create-character-page {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-character-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.create-character-race-details {
+  margin-top: 1rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(35, 24, 12, 0.25);
+  border-radius: var(--main-border-radius);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.create-character-race-details__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.35px;
+  color: #2a1a0b;
+}
+
+.create-character-race-details__description {
+  margin: 0 0 0.65rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: rgba(42, 26, 11, 0.85);
+}
+
+.create-character-stats {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  color: #2a1a0b;
+}
+
+.create-character-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.65rem;
+  line-height: 1.35;
+  color: rgba(42, 26, 11, 0.75);
+}
+
+.create-character-form .main-action-btn {
+  width: 100%;
+  justify-content: center;
+}

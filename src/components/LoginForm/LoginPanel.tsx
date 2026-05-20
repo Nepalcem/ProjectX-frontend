@@ -4,6 +4,8 @@ import axios, { isAxiosError } from "axios";
 import { API_URL } from "@/api/constants";
 import { useAppDispatch } from "@/redux/hooks";
 import { setCredentials } from "@/redux/authSlice";
+import { setCharacter } from "@/redux/characterSlice";
+import type { Character } from "@/types/character";
 import { Lock, Mail } from "lucide-react";
 import { emailRegExp, passwordRegExp } from "@/constants/regularExpressions";
 import FormMessage from "./FormMessage";
@@ -16,6 +18,7 @@ type LoginResponse = {
   token: string;
   message: string;
   user: { email: string; id: string };
+  character: Character | null;
 };
 
 type Props = {
@@ -57,13 +60,14 @@ const LoginPanel: FC<Props> = ({
         password: loginPassword,
       });
 
-      const { token, user } = res.data;
+      const { token, user, character } = res.data;
 
       dispatch(setCredentials({ token, user }));
+      dispatch(setCharacter(character));
 
       setLoginEmail("");
       setLoginPassword("");
-      navigate("/dashboard", { replace: true });
+      navigate(character ? "/dashboard" : "/create-character", { replace: true });
 
     } catch (error: unknown) {
       if (isAxiosError(error)) {

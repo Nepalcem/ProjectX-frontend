@@ -9,6 +9,7 @@ import App from "@/App.tsx";
 import DevLogPage from "@/pages/DevLog/DevLogPage";
 import Home from "@/pages/Home/Home";
 import Dashboard from "@/pages/Dashboard/Dashboard";
+import CreateCharacter from "@/pages/CreateCharacter/CreateCharacter";
 import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import GuestRoute from "@/components/GuestRoute/GuestRoute";
 import { persistor, store } from "@/redux/store";
@@ -31,6 +32,14 @@ createRoot(document.getElementById("root")!).render(
               }
             />
             <Route path="devlog" element={<DevLogPage />} />
+            <Route
+              path="create-character"
+              element={
+                <ProtectedRoute>
+                  <CreateCharacter />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="dashboard"
               element={

@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from "react";
 import { Navigate } from "react-router-dom";
-import { useAuthToken } from "@/redux/hooks";
+import { useAuthToken, useCharacter } from "@/redux/hooks";
 
 type Props = {
   children: ReactNode;
@@ -8,9 +8,10 @@ type Props = {
 
 const GuestRoute: FC<Props> = ({ children }) => {
   const token = useAuthToken();
+  const character = useCharacter();
 
   if (token) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to={character ? "/dashboard" : "/create-character"} replace />;
   }
 
   return children;

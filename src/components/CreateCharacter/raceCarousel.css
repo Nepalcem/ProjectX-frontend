@@ -1,0 +1,116 @@
+.race-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.race-carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.race-carousel__arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(35, 24, 12, 0.45);
+  border-radius: 50%;
+  background: linear-gradient(180deg, #f0d4a8 0%, #e2b87a 100%);
+  color: #3d2410;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.race-carousel__arrow:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.race-carousel__slide {
+  flex: 1;
+  max-width: 220px;
+  padding: 0;
+  border: 2px solid rgba(35, 24, 12, 0.55);
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.race-carousel__slide:hover,
+.race-carousel__slide:focus-visible {
+  border-color: var(--main-accent);
+  box-shadow: 0 0 0 3px rgba(129, 65, 65, 0.2);
+  outline: none;
+}
+
+.race-carousel__image-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 200px;
+  background:
+    linear-gradient(145deg, rgba(61, 36, 16, 0.12) 0%, rgba(61, 36, 16, 0.28) 100%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.06) 0,
+      rgba(255, 255, 255, 0.06) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+  color: #2a1a0b;
+}
+
+.race-carousel__placeholder-label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.race-carousel__placeholder-hint {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.race-carousel__selected-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #2a1a0b;
+}
+
+.race-carousel__dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.race-carousel__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid rgba(35, 24, 12, 0.5);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+}
+
+.race-carousel__dot--active {
+  background: var(--main-accent);
+  border-color: var(--main-accent);
+}

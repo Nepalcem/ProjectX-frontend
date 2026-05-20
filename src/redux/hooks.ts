@@ -6,3 +6,5 @@ export const useAppSelector = useSelector.withTypes<RootState>();
 
 export const useAuthToken = () => useAppSelector((state) => state.auth.token);
 export const useAuthUser = () => useAppSelector((state) => state.auth.user);
+export const useCharacter = () =>
+  useAppSelector((state) => state.character.character);

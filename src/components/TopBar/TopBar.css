@@ -9,6 +9,25 @@
   min-width: 0;
 }
 
-.top-bar nav {
+.top-bar__inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.top-bar__nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin: 5px 0;
+}
+
+.top-bar__logout.main-action-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  height: 28px;
+  padding: 0 14px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
 }

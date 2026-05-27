@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import type { CharacterStats as Stats } from "@/types/character";
+import { getExperienceToNextLevel } from "@/constants/experience";
 import CharacterProgressBar from "./CharacterProgressBar";
 
 type Props = {
@@ -8,16 +9,13 @@ type Props = {
   stats: Stats;
 };
 
-/** Placeholder until backend defines XP thresholds per level. */
-const experienceToNextLevel = (level: number) => (level + 1) * 100;
-
 const CharacterStats: FC<Props> = ({ level, money, stats }) => {
-  const xpMax = experienceToNextLevel(level);
+  const xpMax = getExperienceToNextLevel(level);
 
   return (
     <section className="character-stats" aria-label="Character statistics">
-      <div className="character-stats__block">
-        <ul className="character-stats__grid">
+      <div className="character-stats__columns">
+        <ul className="character-stats__attributes">
           <li>
             <span className="character-stats__label">Strength</span>
             <span className="character-stats__value">{stats.strength}</span>
@@ -35,26 +33,25 @@ const CharacterStats: FC<Props> = ({ level, money, stats }) => {
             <span className="character-stats__value">{stats.vitality}</span>
           </li>
         </ul>
-      </div>
 
-      <div className="character-stats__block">
-        <ul className="character-stats__list">
+        <ul className="character-stats__meta">
           <li>
-            <span className="character-stats__label">Level:</span>
+            <span className="character-stats__label">Level</span>
             <span className="character-stats__value">{level}</span>
           </li>
           <li>
-            <span className="character-stats__label">Money:</span>
-            <span className="character-stats__value">{money} Ducats</span>
+            <span className="character-stats__label">Money (Ducats)</span>
+            <span className="character-stats__value">{money}</span>
           </li>
         </ul>
-        <CharacterProgressBar
-          label="Experience"
-          value={stats.experience}
-          max={xpMax}
-          variant="experience"
-        />
       </div>
+
+      <CharacterProgressBar
+        label="Experience"
+        value={stats.experience}
+        max={xpMax}
+        variant="experience"
+      />
     </section>
   );
 };

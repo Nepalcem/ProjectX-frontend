@@ -2,7 +2,14 @@ import type { FC } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Race } from "@/types/character";
 import { RACE_ORDER, getRaceById } from "@/constants/races";
+import humanImage from "@/media/characters/human_base.png";
+import orcImage from "@/media/characters/orc_base.png";
 import "./raceCarousel.css";
+
+const RACE_IMAGES: Partial<Record<Race, string>> = {
+  human: humanImage,
+  orc: orcImage,
+};
 
 type Props = {
   selectedRace: Race;
@@ -44,10 +51,18 @@ const RaceCarousel: FC<Props> = ({ selectedRace, onSelectRace }) => {
           aria-label={`Select ${race.label}`}
           aria-pressed
         >
-          <div className="race-carousel__image-placeholder" aria-hidden>
-            <span className="race-carousel__placeholder-label">{race.label}</span>
-            <span className="race-carousel__placeholder-hint">Portrait soon</span>
-          </div>
+          {RACE_IMAGES[selectedRace] ? (
+            <img
+              className="race-carousel__image"
+              src={RACE_IMAGES[selectedRace]}
+              alt={`${race.label} character`}
+            />
+          ) : (
+            <div className="race-carousel__image-placeholder" aria-hidden>
+              <span className="race-carousel__placeholder-label">{race.label}</span>
+              <span className="race-carousel__placeholder-hint">Portrait soon</span>
+            </div>
+          )}
         </button>
 
         <button

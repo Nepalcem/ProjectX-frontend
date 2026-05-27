@@ -53,6 +53,17 @@
   outline: none;
 }
 
+.race-carousel__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  max-height: 280px;
+  object-fit: contain;
+  object-position: center bottom;
+  background: rgba(61, 36, 16, 0.08);
+}
+
 .race-carousel__image-placeholder {
   display: flex;
   flex-direction: column;

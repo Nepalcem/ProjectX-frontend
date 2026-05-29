@@ -10,6 +10,7 @@ import DevLogPage from "@/pages/DevLog/DevLogPage";
 import Home from "@/pages/Home/Home";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import CreateCharacter from "@/pages/CreateCharacter/CreateCharacter";
+import Settings from "@/pages/Settings/Settings";
 import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import GuestRoute from "@/components/GuestRoute/GuestRoute";
 import { persistor, store } from "@/redux/store";
@@ -45,6 +46,14 @@ createRoot(document.getElementById("root")!).render(
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="settings"
+              element={
+                <ProtectedRoute>
+                  <Settings />
                 </ProtectedRoute>
               }
             />

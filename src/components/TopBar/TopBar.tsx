@@ -54,18 +54,26 @@ const TopBar: FC = () => {
             <NavLink to="/" className={linkClass}>
               Home
             </NavLink>
-            {!token ? <NavLink to="/devlog" className={linkClass}>
-              Dev log
-            </NavLink> : null}
+            {token ? (
+              <NavLink to="/settings" className={linkClass}>
+                Settings
+              </NavLink>
+            ) : (
+              <NavLink to="/devlog" className={linkClass}>
+                Dev log
+              </NavLink>
+            )}
           </nav>
           {token ? (
-            <MainActionBtn
-              type="button"
-              className="top-bar__logout"
-              onClick={handleLogout}
-            >
-              Log out
-            </MainActionBtn>
+            <div className="top-bar__actions">
+              <MainActionBtn
+                type="button"
+                className="top-bar__logout"
+                onClick={handleLogout}
+              >
+                Log out
+              </MainActionBtn>
+            </div>
           ) : null}
         </div>
       </YellowPlate>

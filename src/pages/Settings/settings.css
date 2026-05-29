@@ -1,0 +1,50 @@
+.settings-page {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.settings-section {
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(35, 24, 12, 0.25);
+  border-radius: var(--main-border-radius);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.settings-section__title {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: rgba(42, 26, 11, 0.85);
+}
+
+.settings-section__text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: rgba(42, 26, 11, 0.85);
+}
+
+.settings-section--danger {
+  border-color: rgba(129, 65, 65, 0.35);
+}
+
+.settings-delete-btn {
+  color: #f8e9c8;
+  border-color: rgba(75, 20, 20, 0.55);
+  background:
+    radial-gradient(120% 180% at 30% 20%, rgba(255, 255, 255, 0.14) 0%, transparent 55%),
+    linear-gradient(180deg, #6b1512 0%, #4a0f0e 100%);
+}
+
+.settings-delete-btn:hover:not(:disabled) {
+  border-color: rgba(75, 20, 20, 0.75);
+}
+
+.settings-delete-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}

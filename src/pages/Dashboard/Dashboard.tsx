@@ -13,9 +13,11 @@ const Dashboard: FC = () => {
 
   return (
     <div className="flex w-full flex-col items-stretch gap-4 lg:items-start">
-      <YellowPlate>
-        <CharacterLarge character={character} />
-      </YellowPlate>
+      <div className="character-large-card">
+        <YellowPlate>
+          <CharacterLarge character={character} />
+        </YellowPlate>
+      </div>
     </div>
   );
 };

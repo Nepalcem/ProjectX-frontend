@@ -25,6 +25,7 @@
   display: flex;
   justify-content: center;
   border-radius: 1.25rem;
+  padding-top: 0.5em;
 }
 
 @media (max-width: 767px) {
@@ -35,7 +36,7 @@
   .app-container {
     flex: 1;
     align-items: stretch;
-    padding-top: 0.5em;
+
   }
 }
 
@@ -43,9 +44,8 @@
   .page-wrapper {
     padding: var(--container-padding-tablet);
   }
-
-  .app-container {
-    padding: 2rem;
+  .page-wrapper__content {
+    align-items: flex-start;
   }
 }
 
@@ -54,11 +54,14 @@
     padding: var(--container-padding-desktop);
   }
 
+  
+
   .app-container {
-    padding: 2.5rem;
+    padding-top: 10px;
   }
 
-  .app-container:has(.create-character-page) {
+  .app-container:has(.create-character-page),
+  .app-container:has(.character-large-card) {
     align-items: flex-start;
     justify-content: flex-start;
   }

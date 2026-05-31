@@ -36,65 +36,22 @@
 
 .race-carousel__slide {
   flex: 1;
-  max-width: 220px;
-  padding: 0;
+  width: 100%;
+  max-width: 300px;
   border: 2px solid rgba(35, 24, 12, 0.55);
   border-radius: 12px;
-  background: transparent;
-  cursor: pointer;
   overflow: hidden;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
-}
-
-.race-carousel__slide:hover,
-.race-carousel__slide:focus-visible {
-  border-color: var(--main-accent);
-  box-shadow: 0 0 0 3px rgba(129, 65, 65, 0.2);
-  outline: none;
 }
 
 .race-carousel__image {
   display: block;
   width: 100%;
   height: auto;
-  min-height: 200px;
-  max-height: 280px;
+  min-height: 260px;
+  max-height: 360px;
   object-fit: contain;
   object-position: center bottom;
   background: rgba(61, 36, 16, 0.08);
-}
-
-.race-carousel__image-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  min-height: 200px;
-  background:
-    linear-gradient(145deg, rgba(61, 36, 16, 0.12) 0%, rgba(61, 36, 16, 0.28) 100%),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.06) 0,
-      rgba(255, 255, 255, 0.06) 8px,
-      transparent 8px,
-      transparent 16px
-    );
-  color: #2a1a0b;
-}
-
-.race-carousel__placeholder-label {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.race-carousel__placeholder-hint {
-  font-size: 0.7rem;
-  opacity: 0.7;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
 }
 
 .race-carousel__selected-name {
@@ -124,4 +81,15 @@
 .race-carousel__dot--active {
   background: var(--main-accent);
   border-color: var(--main-accent);
+}
+
+@media (min-width: 1024px) {
+  .race-carousel__slide {
+    max-width: none;
+  }
+
+  .race-carousel__image {
+    min-height: 320px;
+    max-height: 480px;
+  }
 }

@@ -1,4 +1,8 @@
 import type { Race } from "@/types/character";
+import humanImage from "@/media/characters/base/human_base.png";
+import elfImage from "@/media/characters/base/elf_base.png";
+import dwarfImage from "@/media/characters/base/dwarf_base.png";
+import orcImage from "@/media/characters/base/orc_base.png";
 
 /** Keep base attributes in sync with backend `RACE_BASE_ATTRIBUTES`. */
 export type RaceBaseAttributes = {
@@ -19,6 +23,13 @@ export const HEALTH_PER_VITALITY = 6;
 export const FULL_RECOVERY_MINUTES = 10;
 
 export const RACE_ORDER: Race[] = ["human", "elf", "dwarf", "orc"];
+
+export const RACE_IMAGES: Record<Race, string> = {
+  human: humanImage,
+  elf: elfImage,
+  dwarf: dwarfImage,
+  orc: orcImage,
+};
 
 export const RACES: RaceInfo[] = [
   {

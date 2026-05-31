@@ -9,9 +9,7 @@ import FormMessage from "@/components/LoginForm/FormMessage";
 import RaceCarousel from "@/components/CreateCharacter/RaceCarousel";
 import { API_URL } from "@/api/constants";
 import { nicknameRegExp } from "@/constants/regularExpressions";
-import {
-  getRaceById,
-} from "@/constants/races";
+import { getRaceById } from "@/constants/races";
 import type { Character, Race } from "@/types/character";
 import { useAppDispatch, useAuthToken, useCharacter } from "@/redux/hooks";
 import { setCharacter } from "@/redux/characterSlice";
@@ -81,18 +79,44 @@ const CreateCharacter: FC = () => {
   return (
     <div className="create-character-page">
       <YellowPlate>
-        <h2 className="login-title mb-2 text-center">Create your character</h2>
-        <p className="login-subtitle mb-4 text-center">
-          Choose a race, name your hero, and enter the hall.
-        </p>
+        <form className="create-character-layout" onSubmit={handleSubmit}>
+          <header className="create-character-layout__header">
+            <h2 className="login-title mb-2 text-center">
+              Create your character
+            </h2>
+            <p className="login-subtitle text-center">
+              Choose a race, name your hero, and enter the hall.
+            </p>
+          </header>
 
-        <form className="create-character-form" onSubmit={handleSubmit}>
-          <RaceCarousel
-            selectedRace={selectedRace}
-            onSelectRace={setSelectedRace}
-          />
+          <div className="create-character-layout__fields">
+            <MainTextInput
+              name="character-nickname"
+              id="character-nickname"
+              placeholder="Character name:"
+              autoComplete="off"
+              value={nickname}
+              onChange={(e) => setNickname(e.target.value)}
+              icon={User}
+              maxLength={24}
+            />
+            <p className="create-character-hint">
+              3–24 characters: letters, numbers, and underscores only.
+            </p>
+            <FormMessage message={error} className="mt-3 text-sm" />
+          </div>
 
-          <section className="create-character-race-details" aria-live="polite">
+          <aside className="create-character-layout__carousel">
+            <RaceCarousel
+              selectedRace={selectedRace}
+              onSelectRace={setSelectedRace}
+            />
+          </aside>
+
+          <section
+            className="create-character-layout__stats create-character-race-details"
+            aria-live="polite"
+          >
             <h3 className="create-character-race-details__title">
               {raceInfo.label}
             </h3>
@@ -107,26 +131,9 @@ const CreateCharacter: FC = () => {
             </ul>
           </section>
 
-          <MainTextInput
-            className="mt-2"
-            name="character-nickname"
-            id="character-nickname"
-            placeholder="Character name:"
-            autoComplete="off"
-            value={nickname}
-            onChange={(e) => setNickname(e.target.value)}
-            icon={User}
-            maxLength={24}
-          />
-          <p className="create-character-hint">
-            3–24 characters: letters, numbers, and underscores only.
-          </p>
-
-          <FormMessage message={error} className="mt-3 text-sm" />
-
           <MainActionBtn
             type="submit"
-            className="mt-4 w-full"
+            className="create-character-layout__submit"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Creating…" : "Create character"}

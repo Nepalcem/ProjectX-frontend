@@ -1,0 +1,104 @@
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+}
+
+.dashboard-layout__character {
+  order: 1;
+  width: 100%;
+}
+
+.dashboard-layout__intro {
+  order: 2;
+}
+
+.dashboard-layout__intro .yellow-plate-shell {
+  width: 100%;
+  display: block;
+}
+
+.dashboard-layout__intro .yellow-plate-card {
+  width: 100%;
+}
+
+.intro__title {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #2a1a0b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.intro__text {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(42, 26, 11, 0.88);
+}
+
+.intro__text:last-child {
+  margin-bottom: 0;
+}
+
+.intro__text p {
+  margin: 0 0 0.75rem;
+}
+
+.intro__text p:last-of-type {
+  margin-bottom: 0.75rem;
+}
+
+.intro__text ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style-type: decimal;
+}
+
+.intro__text ol > li {
+  margin-bottom: 0.65rem;
+}
+
+.intro__text ol > li:last-child {
+  margin-bottom: 0;
+}
+
+.intro__text ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+  list-style-type: disc;
+}
+
+.intro__text ul li {
+  margin-bottom: 0.35rem;
+}
+
+.intro__text ul li:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dashboard-layout__character {
+    width: 50%;
+    align-self: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 350px) minmax(0, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+    align-items: start;
+  }
+
+  .dashboard-layout__character,
+  .dashboard-layout__intro {
+    order: unset;
+  }
+}

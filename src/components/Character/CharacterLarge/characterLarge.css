@@ -6,7 +6,7 @@
 
 .character-large-card .yellow-plate-card {
   width: 100%;
-  max-width: min(520px, 100%);
+  max-width: 100%;
   padding: 1rem 1.35rem;
 }
 
@@ -62,9 +62,17 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .character-large-card .yellow-plate-shell,
+  .character-large-card .yellow-plate-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 @media (min-width: 1024px) {
   .character-large-card .yellow-plate-shell .yellow-plate-card {
-    width: min(690px, 100%);
+    width: min(350px, 100%);
     max-width: none;
     padding: 1rem 1.5rem;
   }
@@ -75,13 +83,12 @@
   }
 
   .character-image {
-    width: 350px;
-    max-width: 100%;
+    width: 100%;
   }
 
   .character-image__img {
-    min-height: 320px;
-    max-height: 480px;
+    min-height: 280px;
+    max-height: 400px;
   }
 }
 /* Stats block */

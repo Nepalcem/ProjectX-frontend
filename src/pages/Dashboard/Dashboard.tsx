@@ -2,7 +2,9 @@ import type { FC } from "react";
 import { Navigate } from "react-router-dom";
 import YellowPlate from "@/components/ui/YellowPlate/YellowPlate";
 import CharacterLarge from "@/components/Character/CharacterLarge/CharacterLarge";
+import Intro from "@/pages/Dashboard/Intro";
 import { useCharacter } from "@/redux/hooks";
+import "./dashboard.css";
 
 const Dashboard: FC = () => {
   const character = useCharacter();
@@ -12,12 +14,18 @@ const Dashboard: FC = () => {
   }
 
   return (
-    <div className="flex w-full flex-col items-stretch gap-4 lg:items-start">
-      <div className="character-large-card">
+    <div className="dashboard-layout">
+      <div className="dashboard-layout__character character-large-card">
         <YellowPlate>
           <CharacterLarge character={character} />
         </YellowPlate>
       </div>
+
+      <aside className="dashboard-layout__intro">
+        <YellowPlate>
+          <Intro />
+        </YellowPlate>
+      </aside>
     </div>
   );
 };

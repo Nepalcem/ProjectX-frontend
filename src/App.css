@@ -61,7 +61,7 @@
   }
 
   .app-container:has(.create-character-page),
-  .app-container:has(.character-large-card) {
+  .app-container:has(.dashboard-layout) {
     align-items: flex-start;
     justify-content: flex-start;
   }

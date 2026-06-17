@@ -1,5 +1,5 @@
 import { type ComponentPropsWithoutRef, type FC, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios, { isAxiosError } from "axios";
 import { API_URL } from "@/api/constants";
 import { useAppDispatch } from "@/redux/hooks";
@@ -23,10 +23,12 @@ type LoginResponse = {
 
 type Props = {
   emailVerifiedMessage?: string;
+  passwordResetMessage?: string;
 };
 
 const LoginPanel: FC<Props> = ({
   emailVerifiedMessage,
+  passwordResetMessage,
 }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -91,6 +93,11 @@ const LoginPanel: FC<Props> = ({
         message={emailVerifiedMessage}
         className="mb-3 text-sm"
       />
+      <FormMessage
+        variant="success"
+        message={passwordResetMessage}
+        className="mb-3 text-sm"
+      />
       <FormMessage message={loginError} className="mb-3 text-sm" />
       <form onSubmit={handleLoginSubmit}>
         <MainTextInput
@@ -131,9 +138,9 @@ const LoginPanel: FC<Props> = ({
         </MainActionBtn>
       </form>
       <p className="mb-0 mt-4 text-center">
-        <a href="#0" className="link">
+        <Link to="forgot-password" className="link forgot-password-link">
           Forgot your password?
-        </a>
+        </Link>
       </p>
     </div>
   );

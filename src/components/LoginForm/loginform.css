@@ -114,6 +114,10 @@
   color: #2a1a0b;
 }
 
+.link.forgot-password-link:hover {
+  color: var(--main-accent);
+}
+
 .logo {
   position: absolute;
   top: 30px;

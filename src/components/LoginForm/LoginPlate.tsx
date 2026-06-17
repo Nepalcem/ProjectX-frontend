@@ -13,14 +13,23 @@ import RegisterPanel from "./RegisterPanel";
 const EMAIL_VERIFIED_MSG =
   "Email verification completed. Please log in.";
 
+const PASSWORD_RESET_MSG =
+  "Password updated successfully. Please log in with your new password.";
+
 const readEmailVerifiedFromUrl = () =>
   new URLSearchParams(window.location.search).get("emailVerified") === "1";
+
+const readPasswordResetFromUrl = () =>
+  new URLSearchParams(window.location.search).get("passwordReset") === "1";
 
 const LoginForm: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
   const [emailVerifiedMessage] = useState<string | undefined>(() =>
     readEmailVerifiedFromUrl() ? EMAIL_VERIFIED_MSG : undefined,
+  );
+  const [passwordResetMessage] = useState<string | undefined>(() =>
+    readPasswordResetFromUrl() ? PASSWORD_RESET_MSG : undefined,
   );
 
   useEffect(() => {
@@ -30,8 +39,12 @@ const LoginForm: FC = () => {
     setSearchParams(next, { replace: true });
   }, [searchParams, setSearchParams]);
 
-
-
+  useEffect(() => {
+    if (searchParams.get("passwordReset") !== "1") return;
+    const next = new URLSearchParams(searchParams);
+    next.delete("passwordReset");
+    setSearchParams(next, { replace: true });
+  }, [searchParams, setSearchParams]);
   return (
     <YellowPlate>
         <div className="login-card-header">
@@ -68,6 +81,7 @@ const LoginForm: FC = () => {
           {activeTab === "login" ? (
             <LoginPanel
               emailVerifiedMessage={emailVerifiedMessage}
+              passwordResetMessage={passwordResetMessage}
             />
           ) : (
             <RegisterPanel />

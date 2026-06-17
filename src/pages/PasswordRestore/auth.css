@@ -1,0 +1,17 @@
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.auth-page .yellow-plate-shell {
+  width: 100%;
+  display: block;
+}
+
+.auth-page .yellow-plate-card {
+  width: 100%;
+  max-width: min(420px, 100%);
+}

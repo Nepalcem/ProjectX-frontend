@@ -11,8 +11,11 @@ import Home from "@/pages/Home/Home";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import CreateCharacter from "@/pages/CreateCharacter/CreateCharacter";
 import Settings from "@/pages/Settings/Settings";
+import ForgotPassword from "@/pages/PasswordRestore/ForgotPassword";
+import ResetPassword from "@/pages/PasswordRestore/ResetPassword";
 import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import GuestRoute from "@/components/GuestRoute/GuestRoute";
+import ResetPasswordRoute from "@/components/ResetPasswordRoute/ResetPasswordRoute";
 import { persistor, store } from "@/redux/store";
 
 export const About = () => <h1>About</h1>;
@@ -55,6 +58,22 @@ createRoot(document.getElementById("root")!).render(
                 <ProtectedRoute>
                   <Settings />
                 </ProtectedRoute>
+              }
+            />
+            <Route
+              path="forgot-password"
+              element={
+                <GuestRoute>
+                  <ForgotPassword />
+                </GuestRoute>
+              }
+            />
+            <Route
+              path="reset-password"
+              element={
+                <ResetPasswordRoute>
+                  <ResetPassword />
+                </ResetPasswordRoute>
               }
             />
           </Route>
